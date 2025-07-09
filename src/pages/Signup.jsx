@@ -8,6 +8,7 @@ export default function Signup() {
   const navigate = useNavigate();
 
   const handleSignup = async () => {
+    console.log('입력값:', username, password); 
     try {
       await axios.post('users/signup/', { username, password });
       alert('회원가입 성공! 로그인해주세요.');
@@ -23,14 +24,14 @@ export default function Signup() {
       <input
         placeholder="아이디"
         value={username}
-        onChange={e => setUsername(e.target.value)}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <br />
       <input
         type="password"
         placeholder="비밀번호"
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <br />
       <button onClick={handleSignup}>회원가입</button>
