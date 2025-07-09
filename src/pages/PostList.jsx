@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from '../api/axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('posts/')
@@ -16,6 +18,11 @@ export default function PostList() {
   return (
     <div>
       <h2>📄 게시글 목록</h2>
+
+    <button onClick={() => navigate('/posts/create')}>
+      ✍ 글 작성하기
+    </button>
+
       <ul>
         {posts.map(post => (
           <li key={post.id}>

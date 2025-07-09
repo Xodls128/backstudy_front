@@ -11,8 +11,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/posts" element={<PostList />} />
-        <Route path="/create" element={<PostCreate />} />
-        {/* 추후 PostList, PostCreate 경로도 여기에 추가 */}
+        <Route path="/posts/create" element={<PostCreate />} />      
       </Routes>
     </BrowserRouter>
   );

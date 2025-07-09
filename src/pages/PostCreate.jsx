@@ -8,11 +8,23 @@ export default function PostCreate() {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    const token = localStorage.getItem('access');  //JWT토큰 가져오기
+    
+    if (!token) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
+
     try {
-      await axios.post('posts/create/', {
-        title,
-        content,
-      });
+      await axios.post(
+        'posts/create/', 
+        { title, content },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // 인증 헤더 설정
+          },
+        }
+      );
       alert('작성 완료!');
       navigate('/posts');
     } catch (err) {
@@ -33,6 +45,8 @@ export default function PostCreate() {
         placeholder="내용"
         value={content}
         onChange={e => setContent(e.target.value)}
+        rows={6}
+        cols={50}
       />
       <br />
       <button onClick={handleSubmit}>작성하기</button>
