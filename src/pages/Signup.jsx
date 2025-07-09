@@ -20,7 +20,7 @@ export default function Signup() {
 
   return (
     <div>
-      <h2>📝 회원가입</h2>
+      <h2>회원가입</h2>
       <input
         placeholder="아이디"
         value={username}

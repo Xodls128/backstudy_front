@@ -34,7 +34,7 @@ export default function PostCreate() {
 
   return (
     <div>
-      <h2>✍️ 새 글 작성</h2>
+      <h2>새 글 작성</h2>
       <input
         placeholder="제목"
         value={title}
